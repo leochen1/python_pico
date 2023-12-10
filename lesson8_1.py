@@ -1,11 +1,11 @@
 import random
 import pyinputplus as pyip
-while(True):
+def playGame():
     min = 1
     max = 100
     count = 0
     randomNum = random.randint(min,max)
-    # print(randomNum)
+    print(randomNum)
     print("===========猜數字遊戲=============")
     while True:
         keyin = pyip.inputInt(f"猜數字範圍{min}~{max}:",min=min,max=max)
@@ -22,8 +22,12 @@ while(True):
             print("再大一點")
             min = keyin + 1
         print(f"您已經猜了{count}次")
+
+
+while(True):
+    playGame()
     is_play = pyip.inputYesNo("您還要繼續玩嗎?(y,n):")
     if is_play=="no":
         break
-    
+
 print("Game Over!")
