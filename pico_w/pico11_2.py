@@ -1,7 +1,7 @@
 import network
 import time
 from machine import WDT, Timer, ADC
-
+import urequests as requests
 
 def connect(): 
     nic = network.WLAN(network.STA_IF)
@@ -32,6 +32,10 @@ def connect():
 
 def alert():
     print('要爆炸了!')
+    response = requests.get('https://hook.us1.make.com/idfhmwhq5xdzpjq6aw7153j1a1ejr53g?name=test&date=2024-01-06-14:30:30&temperature=25')
+    print(help(response))
+    response.close()
+    
     
 def callback1(t:Timer):
     global start
@@ -52,3 +56,8 @@ connect()
 start = time.ticks_ms() - 60 * 1000 #應用程式啟動時,計時時間,先減60秒    
 time1 = Timer()
 time1.init(period=1000,callback=callback1)
+
+# https://hook.us1.make.com/idfhmwhq5xdzpjq6aw7153j1a1ejr53g?name=test&date=2024-01-06-14:30:30&temperature=22
+
+
+
