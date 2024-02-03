@@ -3,6 +3,9 @@ import streamlit as st
 import pandas as pd
 import datetime
 import requests
+from streamlit_autorefresh import st_autorefresh
+
+st_autorefresh(interval=5000)
 
 taiwan_tz = pytz.timezone('Asia/Taipei')
 now = datetime.datetime.now(taiwan_tz)
